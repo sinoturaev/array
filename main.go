@@ -1,26 +1,27 @@
 package main
 
-import "fmt"
+func MaxIndexOfMaxElement(numbers []int) (int , int) {
+	Index := 0
+	MaxElement := 0
+	for index, value := range numbers{
+		if MaxElement < value {
+			MaxElement = value
+			Index = index
+		}
+	}
+	return Index, MaxElement
+}
+
+func IndexOfMaxElement(numbers []int) int {
+	MaxElement := numbers[0]
+	for _, value := range numbers{
+		if MaxElement < value {
+			MaxElement = value
+		}
+	}
+	return MaxElement
+}
 
 func main() {
-
-	var array [4]int
-	array[0] = 111
-	array[1] = 222
-	array[2] = 666
-	array[3] = 999
-	fmt.Println(array)
-	fmt.Println("len of array",len(array))
-
-	for i:= 1; i < len(array); i++{
-		array[i] = 0
-	}
-
-	fmt.Println(array)
-
-	for index, _ := range array{
-		array[index]++
-		//fmt.Printf("array[%d] = %d\n", index, value)
-	}
-	fmt.Println(array)
+	IndexOfMaxElement([]int{10, 25, -5, 1, -100, 25})
 }
